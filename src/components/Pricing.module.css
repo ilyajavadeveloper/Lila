@@ -1,0 +1,30 @@
+.section{ padding:80px 10%; background:#dfd0b1; text-align:center; }
+.title{ font-size:32px; margin-bottom:36px; color:#3d7282; }
+.wrapper{ display:flex; justify-content:center; }
+
+.card{
+  background:#fff; border-radius:16px; padding:32px; max-width:420px;
+  box-shadow:0 8px 22px rgba(31,27,45,.06);
+  transition:transform .25s, box-shadow .25s;
+}
+.card:hover{ transform:translateY(-6px); box-shadow:0 12px 28px rgba(31,27,45,.1); }
+.card h3{ font-size:20px; margin-bottom:14px; color:#3d7282; }
+
+.price{ font-size:40px; font-weight:800; color:#3beaef; margin-bottom:20px; }
+
+.list{ list-style:none; padding:0; margin:0 0 24px; text-align:left; color:#314a53; }
+.list li{ margin:10px 0; }
+
+.cta{
+  display:inline-block; padding:12px 22px; border-radius:12px; border:none;
+  background:#3d7282; color:#fff; font-weight:700; text-decoration:none;
+  transition:background .25s, transform .05s, box-shadow .2s;
+  box-shadow:0 8px 20px rgba(61,114,130,.18);
+}
+.cta:hover{ background:#2e5a67; box-shadow:0 10px 24px rgba(61,114,130,.25); }
+.cta:active{ transform:translateY(1px); }
+
+@media (max-width:600px){
+  .section{ padding:60px 6%; }
+  .price{ font-size:34px; }
+}

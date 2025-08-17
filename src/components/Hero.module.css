@@ -1,0 +1,116 @@
+/* ===== HERO (минимализм) ===== */
+.hero{
+    position:relative;
+    --padX: clamp(16px,6vw,10%);
+    --padY: clamp(56px,8vw,96px);
+    padding:var(--padY) var(--padX);
+    background: linear-gradient(180deg, #f4efe6 0%, #ffffff 48%); /* очень мягкий sand → white */
+  }
+  
+  .inner{
+    max-width:1200px; margin:0 auto;
+    display:grid; grid-template-columns:minmax(280px,1.05fr) minmax(260px,.95fr);
+    align-items:center; gap:clamp(20px,4vw,44px);
+  }
+  
+  .copy{ max-width:640px; }
+  .kicker{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#678995; margin-bottom:12px; }
+  .copy h1{ font-size:clamp(30px,4.6vw,46px); line-height:1.12; margin:0 0 12px; color:#1f2a32; }
+  .highlight{ background: linear-gradient(90deg, #3d7282, #3beaef); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .subtitle{ font-size:clamp(15px,1.1vw + .45rem,18px); line-height:1.65; color:#314a53; margin:0 0 22px; }
+  
+  .actions{ display:flex; gap:12px; flex-wrap:wrap; }
+  .cta{
+    padding:12px 20px; border-radius:12px; border:none; background:#3d7282; color:#fff; font-weight:700;
+    transition:background .25s, transform .05s, box-shadow .2s;
+    box-shadow:0 10px 20px rgba(61,114,130,.14);
+  }
+  .cta:hover{ background:#2e5a67; }
+  .cta:active{ transform:translateY(1px); }
+  
+  .secondary{
+    display:inline-flex; align-items:center; gap:8px; padding:12px 18px; border-radius:12px;
+    text-decoration:none; color:#3d7282; background:transparent; border:1px solid #d6e3e7;
+    transition:background .2s, border-color .2s, transform .05s;
+  }
+  .secondary:hover{ background:#f2fbfc; border-color:#3d7282; }
+  .secondary:active{ transform:translateY(1px); }
+  
+  .visual{ display:flex; justify-content:center; }
+  .photoWrap{
+    width:100%; max-width:clamp(340px,40vw,520px); aspect-ratio:4/5;
+    border-radius:16px; overflow:hidden; /* без рамок и тяжёлых теней */
+    box-shadow:0 12px 24px rgba(0,0,0,.06);
+  }
+  @supports not (aspect-ratio:1/1){ .photoWrap{ position:relative; padding-bottom:125%; } .photo{ position:absolute; inset:0; } }
+  .photo{ width:100%; height:100%; object-fit:cover; object-position:50% 42%; display:block; }
+  
+  /* ===== ABOUT (лаконично) ===== */
+  .about{
+    padding:64px 0 72px;
+    background:#fff;
+    max-width:1200px; margin:0 auto;
+  }
+  
+  .aboutTitle{
+    font-size:30px;
+    margin:0 0 10px;
+    color:#3d7282;
+  }
+  
+  .lead{
+    font-size:18px; line-height:1.7; color:#314a53; margin:0 0 14px;
+  }
+  
+  /* Список без «коробок» */
+  .points{
+    list-style:none; padding:0; margin:0 0 10px;
+    display:grid; gap:8px; color:#2a3f47;
+  }
+  
+  /* Мета — просто текст с разделителями, никаких чипов */
+  .meta{
+    margin:12px 0 0; color:#678995; font-weight:600; display:flex; flex-wrap:wrap; gap:8px 16px;
+  }
+  .meta span{ position:relative; padding-left:0; }
+  .meta span + span::before{
+    content:"•"; margin:0 8px 0 0; color:#b1c7ce;
+  }
+  
+  /* Три факта — без карточек, лёгкий акцент слева */
+  .grid{
+    margin:24px 0 0;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+  }
+  .card{
+    background:transparent; border:none; border-left:3px solid #3beaef; /* тонкий акцент */
+    padding:8px 4px 8px 14px;
+    transition: transform .15s ease;
+  }
+  .card:hover{ transform: translateX(2px); }
+  .card h3{ font-size:16px; margin:0 0 6px; color:#2e5a67; }
+  .card p{ margin:0; color:#314a53; line-height:1.6; }
+  
+  .listCompact{ margin:0; padding-left:18px; color:#314a53; }
+  .listCompact li{ margin:6px 0; }
+  
+  /* Кнопки внизу About (опционально) */
+  .actionsAbout{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+  
+  /* ===== Адаптив ===== */
+  @media (max-width:1020px){
+    .inner{ grid-template-columns:1fr; gap:28px; }
+    .visual{ order:-1; }
+    .photoWrap{ max-width:640px; aspect-ratio:3/4; }
+    .photo{ object-position:50% 36%; }
+  }
+  @media (max-width:700px){
+    .grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width:560px){
+    .about{ padding:48px 0 60px; }
+    .aboutTitle{ font-size:26px; }
+    .subtitle{ font-size:16px; }
+    .photoWrap{ max-width:100%; border-radius:14px; }
+  }
+  
