@@ -1,20 +1,14 @@
 import React from "react";
 import styles from "./Hero.module.css";
-import iraPhoto from "../assets/ira.jpg";
+import lilaPoster from "../assets/LILA.jpg";
 
 function Hero() {
-  const handleCta = () => {
-    const el = document.getElementById("contact");
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    else window.location.hash = "#contact";
-  };
-
   return (
     <section className={styles.hero} id="hero">
       <div className={styles.inner}>
-        {/* Текстовая часть */}
+        {/* Левая часть (текст) */}
         <div className={styles.copy}>
-          <span className={styles.kicker}>бережный формат · онлайн/офлайн</span>
+          <span className={styles.kicker}>Лично</span>
           <h1>
             Трансформационная игра{" "}
             <span className={styles.lila}>ЛИЛА</span> с{" "}
@@ -24,21 +18,20 @@ function Hero() {
             Понимание себя, ясность в запросе и план первых шагов.  
             Индивидуально или в мини-группе.
           </p>
+
           <div className={styles.actions}>
-            <button className={styles.cta} onClick={handleCta}>
-              Записаться
-            </button>
-            <a href="#game" className={styles.secondary}>Как проходит</a>
+            <a href="#game" className={styles.cta}>Игра</a>
+            <a href="#contact" className={styles.secondary}>Место проведения</a>
           </div>
         </div>
 
-        {/* Фото */}
+        {/* Правая часть (постер Лила) */}
         <div className={styles.visual}>
-          <div className={styles.photoWrap}>
+          <div className={styles.posterWrap}>
             <img
-              src={iraPhoto}
-              alt="Ира Тищенко — ведущая игры Лила"
-              className={styles.photo}
+              src={lilaPoster}
+              alt="ЛИЛА — игра самопознания"
+              className={styles.poster}
               loading="eager"
               decoding="async"
               fetchpriority="high"
