@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Contact.module.css";
 
 /* SVG-иконки */
@@ -34,29 +34,12 @@ const PinIcon = (props) => (
 );
 
 function Contact() {
-  const [form, setForm] = useState({
-    name: "", phone: "", format: "online", date: "", message: "", consent: false,
-  });
-  const [status, setStatus] = useState("idle");
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setForm((p) => ({ ...p, [name]: type === "checkbox" ? checked : value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!form.consent) return setStatus("no-consent");
-    setStatus("sending");
-    setTimeout(() => setStatus("success"), 600);
-  };
-
   return (
     <section className={styles.section} id="contact">
       <div className={styles.wrapper}>
         <div className={styles.info}>
-          <h2>Запись на игру</h2>
-          <p>Оставьте контакты — Ира свяжется с вами и предложит ближайшие слоты.</p>
+          <h2>Контакты</h2>
+          <p>Встречи проходят <b>офлайн в Ashdod</b>. Выберите удобный способ связи:</p>
 
           <ul className={styles.contactsList}>
             <li>
@@ -72,12 +55,6 @@ function Contact() {
               </a>
             </li>
             <li>
-              <a className={styles.contactLink} href="https://www.facebook.com/share/1ANUQ9yhEu/" target="_blank" rel="noreferrer">
-                <span className={styles.icon}><FacebookIcon/></span>
-                <span>Facebook</span>
-              </a>
-            </li>
-            <li>
               <a className={styles.contactLink} href="tel:+380975992075">
                 <span className={styles.icon}><PhoneIcon/></span>
                 <span>+380 97 599 2075</span>
@@ -90,10 +67,27 @@ function Contact() {
               </a>
             </li>
             <li>
+              <a className={styles.contactLink} href="https://www.facebook.com/share/1ANUQ9yhEu/" target="_blank" rel="noreferrer">
+                <span className={styles.icon}><FacebookIcon/></span>
+                <span>Facebook</span>
+              </a>
+            </li>
+            <li>
               <a className={styles.contactLink} href="https://www.google.com/maps?q=Ha-Gdud%20ha-Ivri%20St%206%2C%20Ashdod" target="_blank" rel="noreferrer">
                 <span className={styles.icon}><PinIcon/></span>
                 <span>Ha-Gdud ha-Ivri St 6, Ashdod</span>
               </a>
+              <div className={styles.mapWrapper}>
+                <iframe
+                  title="Ashdod Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.621260542409!2d34.64216231515784!3d31.801447281280622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502a391cb7a65ef%3A0x8a4444d0f7e2c664!2sHa-Gdud%20ha-Ivri%20St%206%2C%20Ashdod!5e0!3m2!1sen!2sil!4v1700213024000!5m2!1sen!2sil"
+                  width="100%"
+                  height="160"
+                  style={{ border: 0, borderRadius: "12px" }}
+                  allowFullScreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
             </li>
           </ul>
 
@@ -105,55 +99,7 @@ function Contact() {
               <TelegramIcon/> <span>Написать в Telegram</span>
             </a>
           </div>
-
-          <div className={styles.note}>Формат: онлайн (Zoom) или офлайн в Ashdod — по договорённости.</div>
         </div>
-
-        <form className={styles.form} onSubmit={handleSubmit} noValidate>
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>Имя*</span>
-              <input type="text" name="name" placeholder="Как к вам обращаться" value={form.name} onChange={handleChange} required />
-            </label>
-            <label className={styles.field}>
-              <span>Телефон / Telegram*</span>
-              <input type="text" name="phone" placeholder="+380 ... или @username" value={form.phone} onChange={handleChange} required />
-            </label>
-          </div>
-
-          <div className={styles.row}>
-            <label className={styles.field}>
-              <span>Предпочтительный формат</span>
-              <select name="format" value={form.format} onChange={handleChange}>
-                <option value="online">Онлайн (Zoom)</option>
-                <option value="offline">Офлайн (Ashdod)</option>
-                <option value="group">Мини-группа</option>
-                <option value="individual">Индивидуально</option>
-              </select>
-            </label>
-            <label className={styles.field}>
-              <span>Желаемая дата</span>
-              <input type="date" name="date" value={form.date} onChange={handleChange} />
-            </label>
-          </div>
-
-          <label className={styles.field}>
-            <span>Коротко о запросе</span>
-            <textarea name="message" rows="4" placeholder="С чем хотите поработать?" value={form.message} onChange={handleChange} />
-          </label>
-
-          <label className={styles.checkbox}>
-            <input type="checkbox" name="consent" checked={form.consent} onChange={handleChange} required />
-            <span>Согласен(на) на обработку данных</span>
-          </label>
-
-          <button className={styles.submit} type="submit" disabled={status === "sending" || status === "success"}>
-            {status === "sending" ? "Отправляем..." : status === "success" ? "Заявка отправлена" : "Оставить заявку"}
-          </button>
-
-          {status === "no-consent" && <div className={styles.error}>Пожалуйста, подтвердите согласие.</div>}
-          {status === "success" && <div className={styles.success}>Спасибо! Мы свяжемся с вами в ближайшее время.</div>}
-        </form>
       </div>
     </section>
   );
