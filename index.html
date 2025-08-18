@@ -1,13 +1,20 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+<body>
+  <div id="root"></div>
+
+  <!-- UserWay Accessibility Widget -->
+  <script>
+    (function(d){
+      var s = d.createElement("script");
+      s.setAttribute("data-account", "YOUR_ACCOUNT_ID"); /* тут меняешь на свой ID */
+      s.setAttribute("src", "https://cdn.userway.org/widget.js");
+      (d.body || d.head).appendChild(s);
+    })(document)
+  </script>
+
+  <noscript>
+    Пожалуйста, включите JavaScript для корректной работы доступности.
+  </noscript>
+
+  <!-- React entrypoint -->
+  <script type="module" src="/src/main.jsx"></script>
+</body>
