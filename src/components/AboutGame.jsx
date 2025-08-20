@@ -64,4 +64,5 @@ function AboutGame() {
     </section>
   );
 }
+
 export default AboutGame;
