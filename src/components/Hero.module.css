@@ -67,16 +67,26 @@
   flex-wrap: wrap;
   gap: 16px;
 }
+.cta,
+.secondary {
+  display: flex;               /* центровка */
+  align-items: center;         /* по вертикали */
+  justify-content: center;     /* по горизонтали */
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 14px;
+  font-weight: 800;
+}
+
+/* главная кнопка */
 .cta {
   padding: 14px 26px;
-  border-radius: 14px;
   background: linear-gradient(135deg, #3d7282, #2e5a67);
   color: #fff;
-  font-weight: 800;
   font-size: 18px;
   min-height: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
   box-shadow: 0 6px 18px rgba(61, 114, 130, 0.18);
 }
 .cta:hover {
@@ -88,17 +98,15 @@
   transform: scale(0.96);
 }
 
+/* второстепенная */
 .secondary {
   padding: 14px 22px;
   border: 2px solid #d6e3e7;
-  border-radius: 14px;
   color: #3d7282;
-  font-weight: 700;
   font-size: 16px;
   min-height: 48px;
   background: #fff;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  font-weight: 700;
 }
 .secondary:hover {
   border-color: #3d7282;
@@ -158,7 +166,12 @@
 /* телефоны */
 @media (max-width: 600px) {
   .hero {
-    padding-top: calc(var(--nav-h,72px) + clamp(60px, 12vw, 120px));
+    /* в 2 раза больше отступ сверху */
+    padding-top: calc(var(--nav-h,72px) + clamp(120px, 18vw, 180px));
+  }
+  .copy {
+    text-align: center;
+    margin: 0 auto;
   }
   .copy h1 {
     font-size: clamp(30px, 7.5vw, 40px);
@@ -166,14 +179,14 @@
   .subtitle {
     font-size: clamp(16px, 5vw, 20px);
   }
-  .cta {
-    font-size: clamp(18px, 5.5vw, 22px);
-    min-height: 54px;
-    padding: 14px 22px;
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
   }
+  .cta,
   .secondary {
+    width: min(90%, 320px);
     font-size: clamp(16px, 5vw, 20px);
-    min-height: 50px;
-    padding: 12px 18px;
   }
 }
