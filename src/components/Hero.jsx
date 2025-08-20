@@ -6,6 +6,7 @@ function Hero() {
   return (
     <section className={styles.hero} id="hero">
       <div className={styles.inner}>
+        {/* Левая колонка — текст */}
         <div className={styles.copy}>
           <span className={styles.kicker}>Лично</span>
           <h1>
@@ -23,6 +24,7 @@ function Hero() {
           </div>
         </div>
 
+        {/* Правая колонка — постер */}
         <div className={styles.visual}>
           <div className={styles.posterWrap}>
             <img
@@ -31,6 +33,7 @@ function Hero() {
               className={styles.poster}
               loading="eager"
               decoding="async"
+              fetchpriority="high"
             />
           </div>
         </div>
