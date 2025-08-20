@@ -1,71 +1,86 @@
-/* index.css — базовые стили проекта на палитре:
-   primary: #3d7282, accent: #3beaef, sand: #dfd0b1 */
+/* ===== index.css (global, fluid, accessible) =====
+   Палитра:
+   primary: #3d7282, primary-700: #2e5a67, accent: #3beaef, sand: #dfd0b1
+*/
 
-   :root {
-    --primary: #3d7282;
-    --primary-700: #2e5a67;
-    --accent: #3beaef;
-    --sand: #dfd0b1;
-  
-    --ink: #1f2a32;
-    --text: #314a53;
-    --muted: #678995;
-  
-    /* плавный скролл и отступ под фикс-навигацию */
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* подстрой под фактическую высоту Navbar */
+:root {
+  --primary: #3d7282;
+  --primary-700: #2e5a67;
+  --accent: #3beaef;
+  --sand: #dfd0b1;
+
+  --ink: #1f2a32;
+  --text: #314a53;
+  --muted: #678995;
+
+  /* высота фиксированного navbar (для Hero и смещения якорей) */
+  --nav-h: clamp(56px, 7.2vw, 80px);
+
+  /* плавный скролл и отступ под фикс-навигацию */
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+}
+
+/* базовый reset/normalize */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px; /* база */
+}
+
+/* чуть крупнее базовый шрифт на узких телефонах */
+@media (max-width: 380px) {
+  body { font-size: 17px; }
+}
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+/* ссылки по умолчанию */
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-700); text-decoration: underline; }
+
+/* доступность */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+::selection {
+  background: var(--accent);
+  color: #0e2a33;
+}
+
+/* утилиты */
+.container { width: min(1200px, 92%); margin: 0 auto; }
+.center { display: grid; place-items: center; }
+
+/* чтобы якоря не прятались за липким navbar */
+[id] { scroll-margin-top: var(--nav-h); }
+
+/* поддержка reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  
-  /* базовый reset/normalize */
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body, #root { height: 100%; }
-  
-  body {
-    margin: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-      Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji",
-      "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-    color: var(--text);
-    background: #fff;
-    line-height: 1.6;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  img, picture, video, canvas, svg { display: block; max-width: 100%; }
-  input, button, textarea, select { font: inherit; color: inherit; }
-  button { cursor: pointer; }
-  
-  /* ссылки по умолчанию */
-  a { color: var(--primary); text-decoration: none; }
-  a:hover { color: var(--primary-700); text-decoration: underline; }
-  
-  /* доступность */
-  :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    border-radius: 6px;
-  }
-  ::selection {
-    background: var(--accent);
-    color: #0e2a33;
-  }
-  
-  /* утилиты (по желанию) */
-  .container { width: min(1200px, 92%); margin: 0 auto; }
-  .center { display: grid; place-items: center; }
-  
-  /* чтобы якоря не прятались за липким navbar */
-  [id] { scroll-margin-top: 80px; }
-  
-  /* respect reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-  
+}
+
+/* мобильный лэндскейп (низкая высота экрана) — чутка ужмём отступы секций */
+@media (max-height: 560px) and (orientation: landscape) {
+  section { padding-top: max(40px, 6vh) !important; padding-bottom: max(40px, 6vh) !important; }
+}

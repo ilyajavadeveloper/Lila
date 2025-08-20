@@ -1,12 +1,14 @@
+/* ===== Pricing.module.css (clean, consistent with palette) ===== */
+
 .section {
-  padding: 80px 10%;
+  padding: clamp(60px, 7vw, 96px) clamp(16px, 6vw, 10%);
   background: #fff;
   text-align: center;
 }
 
 .title {
-  font-size: 34px;
-  margin-bottom: 40px;
+  font-size: clamp(26px, 4.5vw, 38px);
+  margin-bottom: clamp(24px, 4vw, 40px);
   color: #3d7282;
   letter-spacing: -0.01em;
 }
@@ -20,8 +22,8 @@
   background: #ffffff;
   border: 2px solid #dfd0b1; /* бежевый контур */
   border-radius: 18px;
-  padding: 36px 32px;
-  max-width: 420px;
+  padding: clamp(24px, 4vw, 36px) clamp(20px, 3.5vw, 32px);
+  max-width: 460px;
   width: 100%;
   box-shadow: 0 10px 26px rgba(61, 114, 130, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
@@ -33,31 +35,29 @@
 }
 
 .card h3 {
-  font-size: 22px;
-  margin-bottom: 16px;
+  font-size: clamp(18px, 1.2vw + 0.6rem, 22px);
+  margin-bottom: 12px;
   color: #2e5a67;
 }
 
 .price {
-  font-size: 42px;
-  font-weight: 800;
+  font-size: clamp(34px, 5vw, 44px);
+  font-weight: 900;
   color: #3d7282;
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 3vw, 24px);
   line-height: 1.2;
 }
 
 .list {
   list-style: none;
   padding: 0;
-  margin: 0 0 28px;
+  margin: 0 0 clamp(18px, 3.5vw, 28px);
   text-align: left;
   color: #314a53;
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: clamp(15px, 1.1vw + 0.55rem, 16px);
+  line-height: 1.7;
 }
-.list li {
-  margin: 10px 0;
-}
+.list li { margin: 10px 0; }
 
 /* CTA */
 .cta {
@@ -66,31 +66,22 @@
   border-radius: 14px;
   border: none;
   background: #3d7282;
-  color: #fff !important; /* всегда белый текст */
-  font-weight: 700;
+  color: #fff !important;
+  font-weight: 800;
   text-decoration: none;
-  font-size: 16px;
+  font-size: clamp(15px, 1.1vw + 0.55rem, 17px);
   transition: background 0.25s, transform 0.05s, box-shadow 0.25s;
   box-shadow: 0 8px 20px rgba(61, 114, 130, 0.18);
+  min-height: 48px;
 }
 .cta:hover {
   background: #2e5a67;
   color: #fff !important;
   box-shadow: 0 10px 24px rgba(61, 114, 130, 0.25);
 }
-.cta:active {
-  transform: translateY(1px);
-}
+.cta:active { transform: translateY(1px); }
 
 /* адаптив */
 @media (max-width: 600px) {
-  .section {
-    padding: 60px 6%;
-  }
-  .title {
-    font-size: 28px;
-  }
-  .price {
-    font-size: 36px;
-  }
+  .section { padding: clamp(52px, 9vw, 72px) 6%; }
 }

@@ -1,5 +1,7 @@
+/* ===== Contact.module.css (bigger taps, responsive map) ===== */
+
 .section {
-  padding: 90px 10%;
+  padding: clamp(60px, 7vw, 96px) clamp(16px, 6vw, 10%);
   background: #fff;
   color: #314a53;
 }
@@ -9,16 +11,17 @@
 }
 
 .info h2 {
-  font-size: 36px;
-  margin: 0 0 18px;
+  font-size: clamp(26px, 4.5vw, 38px);
+  margin: 0 0 14px;
   color: #3d7282;
   text-align: center;
+  letter-spacing: -0.01em;
 }
 .info p {
   color: #314a53;
   line-height: 1.8;
-  margin: 0 0 28px;
-  font-size: 17px;
+  margin: 0 0 24px;
+  font-size: clamp(15px, 1.1vw + 0.55rem, 17px);
   text-align: center;
 }
 
@@ -26,24 +29,25 @@
 .contactsList {
   list-style: none;
   padding: 0;
-  margin: 0 0 26px;
+  margin: 0 0 clamp(18px, 3vw, 28px);
   display: grid;
-  gap: 14px;
+  gap: clamp(10px, 2.2vw, 16px);
 }
 .contactLink {
   display: grid;
-  grid-template-columns: 42px 1fr;
+  grid-template-columns: 46px 1fr;
   align-items: center;
   gap: 14px;
   text-decoration: none;
   background: #fff;
-  padding: 14px 16px;
+  padding: clamp(12px, 2.2vw, 16px) clamp(14px, 2.6vw, 18px);
   border-radius: 14px;
   border: 2px solid #dfd0b1;
   color: #2a3f47;
-  font-size: 16px;
+  font-size: clamp(15px, 1.15vw + 0.55rem, 17px);
   font-weight: 500;
   transition: all 0.25s ease;
+  min-height: 56px; /* удобный тап */
 }
 .contactLink:hover {
   transform: translateY(-2px);
@@ -55,18 +59,15 @@
 .icon {
   display: inline-grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
   background: #3d7282;
   color: #fff;
+  font-size: 0;
 }
-.tg {
-  background: #2aabee;
-}
-.wa {
-  background: #25d366;
-}
+.tg { background: #2aabee; }
+.wa { background: #25d366; }
 
 /* карта */
 .mapWrapper {
@@ -74,28 +75,35 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 16/9; /* всегда читабельно */
+}
+.mapWrapper iframe {
+  width: 100%;
+  height: 100%;
 }
 
 /* быстрые кнопки */
 .quickActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin: 24px 0 0;
+  gap: 12px;
+  margin: clamp(18px, 3vw, 26px) 0 0;
   justify-content: center;
 }
 .actionBtn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 20px;
+  padding: 12px 18px;
   border-radius: 12px;
   border: 2px solid #d6e3e7;
   background: #fff;
   color: #2a3f47;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
+  min-height: 48px;
+  font-size: clamp(15px, 1.1vw + 0.55rem, 16px);
 }
 .actionBtn:hover {
   background: #f7f4ee;
@@ -103,9 +111,8 @@
   box-shadow: 0 10px 24px rgba(61, 114, 130, 0.18);
   transform: translateY(-2px);
 }
-.actionBtn:active {
-  transform: translateY(1px);
-}
+.actionBtn:active { transform: translateY(1px); }
+
 .actionPrimary {
   background: linear-gradient(135deg, #3d7282, #2e5a67);
   color: #fff !important;
@@ -113,20 +120,16 @@
 }
 .actionPrimary:hover {
   background: linear-gradient(135deg, #2e5a67, #274952);
-  color: #fff !important; /* текст всегда белый */
+  color: #fff !important;
   box-shadow: 0 10px 26px rgba(61, 114, 130, 0.22);
 }
 
 /* адаптив */
 @media (max-width: 600px) {
-  .section {
-    padding: 70px 6%;
-  }
-  .info h2 {
-    font-size: 28px;
-  }
-  .contactLink {
-    font-size: 15px;
-    padding: 12px;
-  }
+  .section { padding: clamp(54px, 10vw, 72px) 6%; }
+  .icon { width: 34px; height: 34px; }
+  .contactLink { grid-template-columns: 42px 1fr; }
+}
+@media (max-width: 380px) {
+  .contactLink { font-size: 16px; }
 }

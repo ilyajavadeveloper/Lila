@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Hero.module.css";
-import lilaPoster from "../assets/LILA.jpg";
+import lilaPng from "../assets/lila.png"; // используем PNG
 
 function Hero() {
   return (
@@ -15,7 +15,7 @@ function Hero() {
             <span className={styles.highlight}>Ирой Тищенко</span>
           </h1>
           <p className={styles.subtitle}>
-            Понимание себя, ясность в запросе и план первых шагов.  
+            Понимание себя, ясность в запросе и план первых шагов.
             Индивидуально или в мини-группе.
           </p>
 
@@ -29,12 +29,11 @@ function Hero() {
         <div className={styles.visual}>
           <div className={styles.posterWrap}>
             <img
-              src={lilaPoster}
+              src={lilaPng}
               alt="ЛИЛА — игра самопознания"
               className={styles.poster}
               loading="eager"
               decoding="async"
-              fetchpriority="high"
             />
           </div>
         </div>
