@@ -1,22 +1,20 @@
 import React from "react";
 import styles from "./Hero.module.css";
-import lilaPng from "../assets/lila.png"; // используем PNG
+import lilaPng from "../assets/lila.png"; // PNG вместо JPG
 
 function Hero() {
   return (
     <section className={styles.hero} id="hero">
       <div className={styles.inner}>
-        {/* Левая часть (текст) */}
         <div className={styles.copy}>
           <span className={styles.kicker}>Лично</span>
           <h1>
-            Трансформационная игра{" "}
-            <span className={styles.lila}>ЛИЛА</span> с{" "}
+            Трансформационная игра <span className={styles.lila}>ЛИЛА</span> с{" "}
             <span className={styles.highlight}>Ирой Тищенко</span>
           </h1>
           <p className={styles.subtitle}>
-            Понимание себя, ясность в запросе и план первых шагов.
-            Индивидуально или в мини-группе.
+            Понимание себя, ясность в запросе и план первых шагов. Индивидуально
+            или в мини-группе.
           </p>
 
           <div className={styles.actions}>
@@ -25,7 +23,6 @@ function Hero() {
           </div>
         </div>
 
-        {/* Правая часть (постер Лила) */}
         <div className={styles.visual}>
           <div className={styles.posterWrap}>
             <img
@@ -41,5 +38,4 @@ function Hero() {
     </section>
   );
 }
-
 export default Hero;

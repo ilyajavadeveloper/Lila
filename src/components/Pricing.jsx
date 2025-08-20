@@ -20,5 +20,4 @@ function Pricing() {
     </section>
   );
 }
-
 export default Pricing;
