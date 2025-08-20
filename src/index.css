@@ -27,3 +27,18 @@
   display: grid;
   place-items: center;
 }
+/* 🔧 Аварийная защита ширины на мобильных */
+html, body { overflow-x: hidden; }
+body > * { max-width: 100vw; overflow-x: clip; }
+* { min-width: 0; }
+
+/* медиа точно не шире вьюпорта */
+img, iframe, video, svg { max-width: 100%; height: auto; display: block; }
+
+/* шрифты не схлопываются на Android */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* иногда помогает «дизайн-viewport» */
+@supports (width: 100dvw) {
+  body { width: 100dvw; }
+}
