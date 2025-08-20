@@ -1,12 +1,11 @@
 import React from "react";
 import styles from "./Hero.module.css";
-import lilaPng from "../assets/lila.png"; // PNG вместо JPG
+import lilaPng from "../assets/lila.png";
 
 function Hero() {
   return (
-    <section className={styles.hero} id="hero">
+    <section className={`${styles.hero} page`} id="hero">
       <div className={styles.inner}>
-        {/* Левая колонка — текст */}
         <div className={styles.copy}>
           <span className={styles.kicker}>Лично</span>
           <h1>
@@ -24,17 +23,9 @@ function Hero() {
           </div>
         </div>
 
-        {/* Правая колонка — постер */}
         <div className={styles.visual}>
           <div className={styles.posterWrap}>
-            <img
-              src={lilaPng}
-              alt="ЛИЛА — игра самопознания"
-              className={styles.poster}
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
-            />
+            <img src={lilaPng} alt="ЛИЛА — игра самопознания" className={styles.poster} loading="eager" decoding="async" />
           </div>
         </div>
       </div>

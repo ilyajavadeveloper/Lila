@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Contact.module.css";
 
-/* SVG-иконки */
+/* SVG */
 const TelegramIcon = (props) => (
   <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" {...props}>
     <path fill="currentColor" d="M9.036 15.47 8.9 19.8a.9.9 0 0 0 1.6.57l2.053-2.53 4.497 3.292c.83.61 2.003.16 2.266-.86l3.65-14.28c.27-1.06-.78-1.96-1.79-1.52L1.39 10.07c-1.16.51-1.07 2.2.13 2.57l5.86 1.81 10.85-9.34a.3.3 0 0 1 .4.44L9.036 15.47Z"/>
@@ -24,7 +24,7 @@ const MailIcon = (props) => (
 );
 const FacebookIcon = (props) => (
   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" {...props}>
-    <path fill="currentColor" d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78л-.44 2.9h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z"/>
+    <path fill="currentColor" d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78"/>
   </svg>
 );
 const PinIcon = (props) => (
@@ -35,7 +35,7 @@ const PinIcon = (props) => (
 
 function Contact() {
   return (
-    <section className={styles.section} id="contact">
+    <section className={`${styles.section} page`} id="contact">
       <div className={styles.wrapper}>
         <div className={styles.info}>
           <h2>Контакты</h2>
@@ -77,13 +77,14 @@ function Contact() {
                 <span className={styles.icon}><PinIcon/></span>
                 <span>Ha-Gdud ha-Ivri St 6, Ashdod</span>
               </a>
+
               <div className={styles.mapWrapper}>
                 <iframe
                   title="Ashdod Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3391.621260542409!2d34.64216231515784!3d31.801447281280622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502a391cb7a65ef%3A0x8a4444d0f7e2c664!2sHa-Gdud%20ha-Ivri%20St%206%2C%20Ashdod!5e0!3m2!1sen!2sil!4v1700213024000!5m2!1sen!2sil"
                   width="100%" height="160" style={{ border: 0, borderRadius: "12px" }}
                   allowFullScreen="" loading="lazy"
-                ></iframe>
+                />
               </div>
             </li>
           </ul>

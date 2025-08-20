@@ -3,7 +3,7 @@ import styles from "./Pricing.module.css";
 
 function Pricing() {
   return (
-    <section className={styles.section} id="pricing">
+    <section className={`${styles.section} page`} id="pricing">
       <h2 className={styles.title}>Стоимость участия</h2>
       <div className={styles.wrapper}>
         <div className={styles.card}>
