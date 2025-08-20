@@ -116,11 +116,31 @@
   margin-top: 40px;
 }
 .cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
   padding: 14px 28px;
   border-radius: 14px;
   background: linear-gradient(135deg, #2f5d59, #234744);
   color: #fff;
   font-weight: 800;
+  font-size: 18px;
+  min-height: 52px;
+  line-height: 1;
+  cursor: pointer;
+
+  box-shadow: 0 6px 16px rgba(47, 93, 89, 0.2);
+  transition: all 0.3s ease;
+}
+.cta:hover {
+  background: linear-gradient(135deg, #234744, #1c3836);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(47, 93, 89, 0.28);
+}
+.cta:active {
+  transform: scale(0.97);
 }
 
 /* адаптив */

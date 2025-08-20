@@ -14,10 +14,13 @@ function Pricing() {
             <li>✔ Офлайн в Ashdod</li>
             <li>✔ Длительность: 2–3 часа</li>
           </ul>
-          <a href="#contact" className={styles.cta}>Записаться</a>
+          <div className={styles.ctaWrap}>
+            <a href="#contact" className={styles.cta}>Записаться</a>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 export default Pricing;
