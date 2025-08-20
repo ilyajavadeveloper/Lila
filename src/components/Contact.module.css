@@ -86,7 +86,7 @@
 
 /* ===== MAP ===== */
 .mapWrapper {
-  margin-top: 12px;
+  margin: 24px 0 32px;   /* сверху 24px, снизу 32px */
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
@@ -159,5 +159,8 @@
     font-size: 18px;
     min-height: 56px;
     padding: 14px 24px;
+  }
+  .mapWrapper {
+    margin: 18px 0 24px; /* компактнее на мобиле */
   }
 }
