@@ -43,13 +43,13 @@ function Contact() {
 
           <ul className={styles.contactsList}>
             <li>
-              <a className={styles.contactLink} href="https://t.me/IrenaShraybman" target="_blank" rel="noreferrer">
+              <a className={styles.contactLink} href="https://t.me/IrenaShraybman" target="_blank" rel="noreferrer noopener">
                 <span className={`${styles.icon} ${styles.tg}`}><TelegramIcon/></span>
                 <span>@IrenaShraybman</span>
               </a>
             </li>
             <li>
-              <a className={styles.contactLink} href="https://wa.me/380975992075" target="_blank" rel="noreferrer">
+              <a className={styles.contactLink} href="https://wa.me/380975992075" target="_blank" rel="noreferrer noopener">
                 <span className={`${styles.icon} ${styles.wa}`}><WhatsAppIcon/></span>
                 <span>WhatsApp: +380 97 599 2075</span>
               </a>
@@ -67,13 +67,13 @@ function Contact() {
               </a>
             </li>
             <li>
-              <a className={styles.contactLink} href="https://www.facebook.com/share/1ANUQ9yhEu/" target="_blank" rel="noreferrer">
+              <a className={styles.contactLink} href="https://www.facebook.com/share/1ANUQ9yhEu/" target="_blank" rel="noreferrer noopener">
                 <span className={styles.icon}><FacebookIcon/></span>
                 <span>Facebook</span>
               </a>
             </li>
             <li>
-              <a className={styles.contactLink} href="https://www.google.com/maps?q=Ha-Gdud%20ha-Ivri%20St%206%2C%20Ashdod" target="_blank" rel="noreferrer">
+              <a className={styles.contactLink} href="https://www.google.com/maps?q=Ha-Gdud%20ha-Ivri%20St%206%2C%20Ashdod" target="_blank" rel="noreferrer noopener">
                 <span className={styles.icon}><PinIcon/></span>
                 <span>Ha-Gdud ha-Ivri St 6, Ashdod</span>
               </a>
@@ -92,10 +92,10 @@ function Contact() {
           </ul>
 
           <div className={styles.quickActions}>
-            <a className={`${styles.actionBtn} ${styles.actionPrimary}`} href="https://wa.me/380975992075?text=Здравствуйте%2C%20хочу%20записаться%20на%20игру" target="_blank" rel="noreferrer">
+            <a className={`${styles.actionBtn} ${styles.actionPrimary}`} href="https://wa.me/380975992075?text=Здравствуйте%2C%20хочу%20записаться%20на%20игру" target="_blank" rel="noreferrer noopener">
               <WhatsAppIcon/> <span>Написать в WhatsApp</span>
             </a>
-            <a className={styles.actionBtn} href="https://t.me/IrenaShraybman" target="_blank" rel="noreferrer">
+            <a className={styles.actionBtn} href="https://t.me/IrenaShraybman" target="_blank" rel="noreferrer noopener">
               <TelegramIcon/> <span>Написать в Telegram</span>
             </a>
           </div>

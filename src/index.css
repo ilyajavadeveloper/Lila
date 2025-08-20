@@ -1,7 +1,4 @@
-/* ===== index.css (global, fluid, accessible) =====
-   Палитра:
-   primary: #3d7282, primary-700: #2e5a67, accent: #3beaef, sand: #dfd0b1
-*/
+/* ===== index.css (global mobile-friendly + anchor offset) ===== */
 
 :root {
   --primary: #3d7282;
@@ -13,15 +10,14 @@
   --text: #314a53;
   --muted: #678995;
 
-  /* высота фиксированного navbar (для Hero и смещения якорей) */
-  --nav-h: clamp(56px, 7.2vw, 80px);
+  /* Чуть выше навбар, чтобы на мобиле было комфортно */
+  --nav-h: clamp(72px, 8.5vw, 88px);
 
-  /* плавный скролл и отступ под фикс-навигацию */
   scroll-behavior: smooth;
-  scroll-padding-top: var(--nav-h);
+  /* Глобально: якоря не прячутся (x1.8, герою дадим x2 в модуле) */
+  scroll-padding-top: calc(var(--nav-h) * 1.8);
 }
 
-/* базовый reset/normalize */
 *, *::before, *::after { box-sizing: border-box; }
 html, body, #root { height: 100%; }
 
@@ -32,45 +28,42 @@ body {
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   color: var(--text);
   background: #fff;
-  line-height: 1.65;
+  line-height: 1.68;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px; /* база */
+  font-size: 16px;
 }
 
-/* чуть крупнее базовый шрифт на узких телефонах */
-@media (max-width: 380px) {
-  body { font-size: 17px; }
+/* На телефонах — крупнее база */
+@media (max-width: 600px) {
+  body { font-size: 17.5px; }
+}
+/* Очень узкие — ещё капельку */
+@media (max-width: 360px) {
+  body { font-size: 18px; }
 }
 
 img, picture, video, canvas, svg { display: block; max-width: 100%; }
 input, button, textarea, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
 
-/* ссылки по умолчанию */
 a { color: var(--primary); text-decoration: none; }
 a:hover { color: var(--primary-700); text-decoration: underline; }
 
-/* доступность */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 6px;
 }
-::selection {
-  background: var(--accent);
-  color: #0e2a33;
-}
+::selection { background: var(--accent); color: #0e2a33; }
 
-/* утилиты */
 .container { width: min(1200px, 92%); margin: 0 auto; }
 .center { display: grid; place-items: center; }
 
-/* чтобы якоря не прятались за липким navbar */
-[id] { scroll-margin-top: var(--nav-h); }
+/* На всякий — якоря с запасом к навбару */
+[id] { scroll-margin-top: calc(var(--nav-h) * 1.8); }
 
-/* поддержка reduce motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -80,7 +73,7 @@ a:hover { color: var(--primary-700); text-decoration: underline; }
   }
 }
 
-/* мобильный лэндскейп (низкая высота экрана) — чутка ужмём отступы секций */
+/* Низкая высота (моб-ландшафт): поджать вертикальные паддинги секций */
 @media (max-height: 560px) and (orientation: landscape) {
   section { padding-top: max(40px, 6vh) !important; padding-bottom: max(40px, 6vh) !important; }
 }
