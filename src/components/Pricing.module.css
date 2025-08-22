@@ -62,15 +62,19 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  position: relative;
+  padding-left: 24px; /* отступ для галочки */
 }
 .list li::before {
   content: "✔";
+  position: absolute;
+  left: 0;
   color: #3d7282;
   font-weight: bold;
 }
 
 .ctaWrap {
-  text-align: center; /* центруем кнопку */
+  text-align: center;
 }
 
 .cta {

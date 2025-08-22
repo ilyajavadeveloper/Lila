@@ -4,7 +4,7 @@
   padding-inline: var(--page-pad);
   padding-bottom: clamp(32px, 6vw, 80px);
 
-  background: linear-gradient(180deg, #f7f4ee 0%, #ffffff 60%);
+  background: #f9fbfa; /* фон теперь как у AboutGame */
   display: grid;
   align-items: center;
   min-height: calc(100svh - var(--nav-h));
@@ -69,9 +69,9 @@
 }
 .cta,
 .secondary {
-  display: flex;               /* центровка */
-  align-items: center;         /* по вертикали */
-  justify-content: center;     /* по горизонтали */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -166,7 +166,6 @@
 /* телефоны */
 @media (max-width: 600px) {
   .hero {
-    /* в 2 раза больше отступ сверху */
     padding-top: calc(var(--nav-h,72px) + clamp(120px, 18vw, 180px));
   }
   .copy {

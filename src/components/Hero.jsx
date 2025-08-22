@@ -25,7 +25,13 @@ function Hero() {
 
         <div className={styles.visual}>
           <div className={styles.posterWrap}>
-            <img src={lilaPng} alt="ЛИЛА — игра самопознания" className={styles.poster} loading="eager" decoding="async" />
+            <img
+              src={lilaPng}
+              alt="ЛИЛА — игра самопознания"
+              className={styles.poster}
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </div>
