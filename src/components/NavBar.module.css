@@ -25,9 +25,7 @@
   padding: 10px clamp(14px, 5vw, 36px);
 }
 
-@keyframes slideDown {
-  to { transform: translateY(0); }
-}
+@keyframes slideDown { to { transform: translateY(0); } }
 
 /* Лого */
 .logo {
@@ -38,9 +36,7 @@
   letter-spacing: -0.02em;
   transition: color .3s ease, transform .3s ease;
 }
-.logo:hover {
-  transform: scale(1.05);
-}
+.logo:hover { transform: scale(1.05); }
 .lila {
   background: linear-gradient(90deg, var(--accent-pink), var(--accent-gold));
   -webkit-background-clip: text;
@@ -57,9 +53,8 @@
   opacity: 0;
   animation: fadeIn 1s ease .4s forwards;
 }
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
+@keyframes fadeIn { to { opacity: 1; } }
+
 .navLinks a {
   text-decoration: none;
   font-weight: 600;
@@ -71,9 +66,10 @@
   position: relative;
 }
 .navLinks a:hover {
-  background: rgba(255,255,255,0.15);
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  background: rgba(255,255,255,0.25); /* ярче hover */
+  transform: translateY(-2px) scale(1.04);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
 }
 .navLinks a::after {
   content: "";
@@ -88,19 +84,23 @@
   width: 70%;
 }
 
-/* Мобилки */
+/* 📱 Мобилки */
 @media (max-width: 700px) {
   .navbar {
-    padding: 8px 16px;
+    padding: 10px 16px;
   }
-  .logo {
-    font-size: 20px;
-  }
+  .logo { font-size: 20px; }
+
   .navLinks {
-    gap: 10px;
+    gap: 8px;
   }
   .navLinks a {
     font-size: 15px;
-    padding: 8px 12px;
+    padding: 10px 14px;
+  }
+
+  /* 🛠 расстояние чтобы не липло к картинке hero */
+  .navbar + * {
+    margin-top: var(--nav-h);
   }
 }
