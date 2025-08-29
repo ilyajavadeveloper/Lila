@@ -12,10 +12,6 @@ function NavBar() {
 
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
-      <div className={styles.logo}>
-        Игра <span className={styles.lila}>Лила</span> с Ирой
-      </div>
-
       <ul className={styles.navLinks}>
         <li><a href="#hero">Игра</a></li>
         <li><a href="#game">Об игре</a></li>

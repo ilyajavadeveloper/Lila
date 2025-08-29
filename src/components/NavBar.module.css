@@ -4,7 +4,7 @@
   z-index: 1000;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* 🔥 теперь меню по центру */
   align-items: center;
 
   min-height: var(--nav-h);
@@ -28,25 +28,6 @@
   to { transform: translateY(0); }
 }
 
-/* Лого */
-.logo {
-  font-size: clamp(20px, 2vw, 28px);
-  font-weight: 900;
-  font-family: var(--font-title);
-  color: var(--text-light);
-  letter-spacing: -0.02em;
-  transition: color .3s ease, transform .3s ease;
-}
-.logo:hover {
-  transform: scale(1.05);
-}
-.lila {
-  background: linear-gradient(90deg, var(--accent-pink), var(--accent-gold));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
 /* Ссылки */
 .navLinks {
   list-style: none;
@@ -68,8 +49,7 @@
   border-radius: var(--radius);
   transition: all .35s ease;
   position: relative;
-
-  white-space: nowrap; /* 🔥 запрет переносов */
+  white-space: nowrap;
 }
 .navLinks a:hover {
   background: rgba(255,255,255,0.25);
@@ -95,15 +75,12 @@
   .navbar {
     padding: 10px 16px;
   }
-  .logo {
-    font-size: 20px;
-  }
   .navLinks {
-    gap: 8px;
+    gap: 10px;
   }
   .navLinks a {
     font-size: 16px;
-    padding: 10px 12px;
+    padding: 8px 12px;
   }
 }
 
