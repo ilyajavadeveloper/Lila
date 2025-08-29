@@ -12,8 +12,8 @@ function Hero() {
             Лила: <span className={styles.highlight}>Новый взгляд</span>
           </h1>
           <p className={styles.subtitle}>
-            Психологическая трансформационная игра под руководством
-            психотерапевта <b>Иры Тищенко</b>.
+            Психологическая трансформационная игра под руководством{" "}
+            <b>Иры Тищенко</b>.
           </p>
 
           <ul className={styles.points}>
@@ -26,8 +26,7 @@ function Hero() {
           <p className={styles.bio}>
             <b>Ира Тищенко</b> — практикующий психотерапевт. Она проводит не
             только игру «Лила», но и <b>частные консультации</b>, где помогает
-            мягко разбирать личные запросы и находить реальные шаги к
-            изменениям.
+            мягко разбирать личные запросы и находить реальные шаги к изменениям.
           </p>
 
           <div className={styles.actions}>
@@ -46,7 +45,9 @@ function Hero() {
               decoding="async"
             />
             <div className={styles.overlay}>
-              <span className={styles.caption}>Ира Тищенко — психотерапевт</span>
+              <span className={styles.caption}>
+                Ира Тищенко — психотерапевт
+              </span>
             </div>
           </div>
         </div>
