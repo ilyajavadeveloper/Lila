@@ -1,107 +1,83 @@
 .navbar {
-  --padX: clamp(16px, 5vw, 48px);
-  --gap: clamp(12px, 3vw, 32px);
-
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
 
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 
-  min-height: var(--nav-h, 72px);
-  padding: 12px max(env(safe-area-inset-left), var(--padX)) 12px max(env(safe-area-inset-right), var(--padX));
+  min-height: var(--nav-h);
+  padding: 12px clamp(16px, 5vw, 48px);
 
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid rgba(61,114,130,0.12);
-  transition: all .35s ease;
+  /* 🔥 фон сделали темнее и контрастнее */
+  background: linear-gradient(90deg, rgba(90,55,88,0.95), rgba(120,75,118,0.95));
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+
+  transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.3s ease;
 }
 .navbar.scrolled {
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  background: linear-gradient(90deg, rgba(70,40,68,0.97), rgba(100,55,98,0.97));
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transform: translateY(0); /* плавное появление */
 }
 
+/* Логотип */
 .logo {
   font-size: clamp(20px, 2vw, 28px);
   font-weight: 900;
-  color: #3d7282;
-  white-space: nowrap;
-  letter-spacing: -0.02em;
+  font-family: var(--font-title);
+  color: var(--text-light);
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
 }
 .lila {
-  background: linear-gradient(90deg,#e86f6f,#f4b36b);
+  background: linear-gradient(90deg, var(--accent-pink), var(--accent-gold));
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
 }
 
+/* Ссылки */
 .navLinks {
   list-style: none;
+  display: flex;
+  gap: clamp(12px, 3vw, 32px);
   margin: 0;
   padding: 0;
-
-  display: flex;
-  align-items: center;
-  gap: var(--gap);
-
-  justify-content: center; /* тянем к центру */
-  margin-left: 8%;        /* подвигаем вправо */
-  margin-right: auto;     /* не заезжает на кнопку доступности */
-
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
 }
-.navLinks::-webkit-scrollbar { display: none; }
-
 .navLinks a {
-  display: block;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-size: clamp(16px, 1.2vw, 18px);
-  color: #2a3f47;
   text-decoration: none;
   font-weight: 600;
-  transition: color .25s, background .25s, transform .2s;
+  font-size: clamp(16px, 1.2vw, 18px);
+  color: var(--text-light);
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.25s ease;
 }
-.navLinks a:hover { 
-  color:#3d7282; 
-  background:#3beaef22; 
-  transform: translateY(-2px); 
-}
-
-/* планшет */
-@media (max-width: 880px) {
-  .navLinks {
-    margin-left: 5%;
-    gap: clamp(10px, 2.8vw, 16px);
-  }
+.navLinks a:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  transform: translateY(-2px);
 }
 
-/* телефоны */
-@media (max-width: 600px) {
-  .navbar { 
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    row-gap: 8px;
-    padding: 10px 16px;
-  }
-  .logo {
-    justify-self: center;
-    font-size: clamp(22px, 6vw, 28px);
-    grid-column: 1 / -1;
-  }
+/* Анимация появления */
+.navbar {
+  transform: translateY(-100%);
+  animation: slideDown 0.6s ease forwards;
+}
+@keyframes slideDown {
+  to { transform: translateY(0); }
+}
+
+/* Мобилки */
+@media (max-width: 768px) {
   .navLinks {
-    grid-column: 1 / -1;
-    justify-content: center;
-    margin: 0;
-    gap: clamp(12px, 4vw, 18px);
+    gap: clamp(10px, 4vw, 20px);
   }
   .navLinks a {
     font-size: clamp(16px, 4vw, 20px);
-    padding: 10px 14px;
+    padding: 8px 12px;
   }
 }

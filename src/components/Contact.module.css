@@ -1,166 +1,115 @@
 .section {
-  padding: 80px clamp(16px, 6vw, 10%);
-  background: #fff;
-  color: #314a53;
-  scroll-margin-top: calc(var(--nav-h) * 1.6);
-}
-
-.wrapper {
-  max-width: 960px;
-  margin: 0 auto;
-  width: 100%;
+  padding: clamp(80px, 12vw, 140px) clamp(20px, 6vw, 10%);
+  background: var(--bg-accent);
+  color: var(--text-dark);
 }
 
 .info h2 {
-  font-size: clamp(32px, 5vw, 42px);
-  margin: 0 0 16px;
-  color: #3d7282;
   text-align: center;
-  letter-spacing: -0.01em;
+  font-size: clamp(32px, 6vw, 52px);
+  margin-bottom: 20px;
+  font-family: var(--font-title);
+  font-weight: 900;
+  color: var(--bg-main);
 }
-
 .info p {
-  font-size: clamp(16px, 4.5vw, 20px);
-  line-height: 1.8;
-  margin: 0 0 28px;
   text-align: center;
+  margin-bottom: 40px;
+  font-size: clamp(18px, 4vw, 22px);
+  line-height: 1.7;
+  max-width: 800px;
+  margin-inline: auto;
+  opacity: 0.9;
 }
 
-/* ===== LIST ===== */
+/* Contacts */
 .contactsList {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 40px;
   list-style: none;
   padding: 0;
-  margin: 0 0 26px;
-  display: grid;
-  gap: 14px;
 }
-
-/* ===== CONTACT CARD ===== */
 .contactLink {
-  display: grid;
-  grid-template-columns: 50px 1fr;
+  display: flex;
   align-items: center;
-  gap: 14px;
-
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 2px solid #dfd0b1;
-
-  background: #fff;
-  color: #2a3f47;
-  font-weight: 600;
-  font-size: 16px;
-
-  text-decoration: none; /* убрали подчёркивание */
-  transition: all 0.3s ease;
-  cursor: pointer;
+  gap: 18px;
+  padding: 18px 24px;
+  border-radius: var(--radius);
+  background: var(--bg-light);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-dark);
+  transition: all .3s ease;
 }
-
 .contactLink:hover {
-  transform: translateY(-3px);
-  border-color: #cbbd9e;
-  background: #faf7f1;
-  box-shadow: 0 6px 20px rgba(61,114,130,0.12);
+  transform: translateY(-4px) scale(1.02);
+  background: #fff;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.16);
 }
 
-.contactLink:visited,
-.contactLink:active {
-  color: #2a3f47;
-  text-decoration: none; /* страховка */
-}
-
-/* ===== ICON ===== */
+/* Icons */
 .icon {
-  display: inline-grid;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: #3d7282;
+  background: var(--bg-main);
   color: #fff;
   flex-shrink: 0;
+  font-size: 22px;
 }
-
 .tg { background: #2aabee; }
 .wa { background: #25d366; }
 
-/* ===== MAP ===== */
+/* Map */
 .mapWrapper {
-  margin: 24px 0 32px;   /* сверху 24px, снизу 32px */
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  margin-top: 24px;
   aspect-ratio: 16/9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 14px 32px rgba(0,0,0,0.14);
+  transition: transform .3s ease;
+}
+.mapWrapper:hover {
+  transform: scale(1.01);
 }
 .mapWrapper iframe {
   width: 100%;
   height: 100%;
-  border: 0;
-}
-
-/* ===== QUICK ACTIONS ===== */
-.quickActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin: 24px 0 0;
-  justify-content: center;
-}
-
-.actionBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  border-radius: 12px;
-  border: 2px solid #d6e3e7;
-
-  background: #fff;
-  color: #2a3f47;
-  font-weight: 700;
-  font-size: 16px;
-  min-height: 50px;
-  text-decoration: none;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.actionBtn:hover {
-  background: #f7f4ee;
-  border-color: #3d7282;
-  box-shadow: 0 10px 24px rgba(61,114,130,0.18);
-  transform: translateY(-2px);
-}
-
-.actionPrimary {
-  background: linear-gradient(135deg,#3d7282,#2e5a67);
-  color: #fff !important;
   border: none;
 }
-.actionPrimary:hover {
-  background: linear-gradient(135deg,#2e5a67,#274952);
-  color: #fff !important;
-  box-shadow: 0 10px 26px rgba(61,114,130,0.22);
-}
 
-/* ===== MOBILE ===== */
-@media (max-width: 600px) {
-  .contactLink {
-    grid-template-columns: 60px 1fr;
-    font-size: 18px;
-    min-height: 64px;
-    padding: 16px 20px;
-  }
-  .icon {
-    width: 50px;
-    height: 50px;
-  }
-  .actionBtn {
-    font-size: 18px;
-    min-height: 56px;
-    padding: 14px 24px;
-  }
-  .mapWrapper {
-    margin: 18px 0 24px; /* компактнее на мобиле */
-  }
+/* Quick actions */
+.quickActions {
+  margin-top: 40px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.actionBtn {
+  padding: 16px 28px;
+  border-radius: var(--radius);
+  font-weight: 800;
+  font-size: 18px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-light);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  color: var(--text-dark);
+  transition: all .3s;
+}
+.actionBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+}
+.actionPrimary {
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-gold));
+  color: #fff;
 }

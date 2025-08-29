@@ -1,29 +1,109 @@
-@media (max-width: 768px) {
-  .page{
-    min-height: 100svh;  /* базово = экран */
-
-    /* подстраховка: если dvh поддерживается — используем его */
-    @supports (min-height: 100dvh) {
-      min-height: 100dvh;
-    }
-
-    display: grid;
-    place-items: center;
-    padding: 16px;
-  }
-
-  .container{ height: 100%; }
-
-  .card{
-    width: min(560px, 100%);
-    margin-inline: auto;
-    overflow-wrap: anywhere;
-  }
+/* === RESET === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.fullscreen{
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* 🔥 железобетонный фикс белой полосы */
+  
+  font-family: var(--font-body);
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+
+  /* Сглаживание текста */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* === ROOT VARIABLES === */
+:root {
+  /* Цвета */
+  --bg-main: #a47aa1;        /* нежно-фиолетовый фон */
+  --bg-light: #fffaf5;       /* светлый беж для карточек */
+  --bg-accent: #fdf6f0;      /* фон акцентных блоков */
+
+  --text-dark: #2a1f2e;      /* глубокий серо-бордовый */
+  --text-light: #fdfdfd;     /* белый для контраста */
+
+  --accent-pink: #e86f6f;    /* тёплый розовый */
+  --accent-gold: #f4b36b;    /* золотистый */
+  --accent-green: #9cc8b5;   /* пастельный зелёный */
+
+  /* UI */
+  --nav-h: 72px;
+  --radius: 16px;
+  --shadow: 0 8px 24px rgba(42, 31, 46, 0.12);
+
+  /* Типографика */
+  --font-title: 'Georgia', 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* === Базовая секция/страница === */
+.page {
+  width: 100%;
+  min-height: 100svh;
+
+  @supports (min-height: 100dvh) {
+    min-height: 100dvh;
+  }
+
+  /* full-bleed для цветных секций */
+  margin-left: calc(-1 * (100dvw - 100%) / 2);
+  margin-right: calc(-1 * (100dvw - 100%) / 2);
+}
+
+/* === Контейнер === */
+.container {
+  width: 100%;
+  max-width: 1400px; /* широкий контейнер */
+  margin-inline: auto;
+  padding-inline: clamp(16px, 5vw, 64px);
+}
+
+/* === Карточки === */
+.card {
+  width: min(640px, 100%);
+  margin-inline: auto;
+  background: var(--bg-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  overflow-wrap: anywhere;
+}
+
+/* === Фуллскрин-блок === */
+.fullscreen {
   inline-size: 100%;
   block-size: 100%;
   display: grid;
   place-items: center;
+}
+
+/* === Мобилки === */
+@media (max-width: 768px) {
+  .card {
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .container {
+    padding-inline: 16px;
+  }
 }
